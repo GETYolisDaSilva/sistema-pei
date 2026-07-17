@@ -1,0 +1,210 @@
+:root {
+  --cor-primaria: #1F4E5F;
+  --cor-primaria-escura: #143844;
+  --cor-primaria-clara: #3E7C8F;
+  --cor-fundo: #EEF2F1;
+  --cor-superficie: #FFFFFF;
+  --cor-texto: #1C2B2E;
+  --cor-texto-suave: #5C6C6F;
+  --cor-acento: #C0842E;
+  --cor-acento-clara: #E7C793;
+  --cor-sucesso: #3F7D5C;
+  --cor-alerta: #B24B3E;
+  --cor-borda: #D7DEDC;
+  --raio: 10px;
+  --fonte-titulo: Georgia, 'Times New Roman', serif;
+  --fonte-corpo: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --sombra: 0 2px 10px rgba(20, 56, 68, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--fonte-corpo);
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.5;
+}
+
+header.topo {
+  background: var(--cor-primaria);
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--sombra);
+}
+
+header.topo .marca {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+header.topo .marca small {
+  display: block;
+  font-family: var(--fonte-corpo);
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--cor-acento-clara);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+header.topo .sessao {
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+header.topo button.sair {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: var(--raio);
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+header.topo button.sair:hover { background: rgba(255,255,255,0.12); }
+
+main#app {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 28px 18px 80px;
+}
+
+.trilha { margin-bottom: 22px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 0.85rem; color: var(--cor-texto-suave); }
+.trilha .passo { cursor: pointer; }
+.trilha .passo.ativo { color: var(--cor-primaria); font-weight: 600; }
+.trilha .sep { color: var(--cor-borda); }
+
+.cartao {
+  background: var(--cor-superficie);
+  border-radius: var(--raio);
+  border: 1px solid var(--cor-borda);
+  box-shadow: var(--sombra);
+  padding: 24px;
+  margin-bottom: 18px;
+}
+
+h1.titulo-pagina {
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  color: var(--cor-primaria-escura);
+  margin: 0 0 6px;
+}
+p.subtitulo { color: var(--cor-texto-suave); margin: 0 0 22px; font-size: 0.95rem; }
+
+.grade-botoes { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+
+.botao-opcao {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 16px 18px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--cor-texto);
+  transition: border-color .15s, transform .1s;
+}
+.botao-opcao:hover { border-color: var(--cor-primaria-clara); transform: translateY(-1px); }
+.botao-opcao .rotulo-pequeno {
+  display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--cor-acento); margin-bottom: 4px; font-weight: 600;
+}
+
+.botao-primario, .botao-secundario, .botao-perigo {
+  border: none; border-radius: var(--raio); padding: 11px 20px; font-size: 0.95rem;
+  cursor: pointer; font-family: inherit; font-weight: 600;
+}
+.botao-primario { background: var(--cor-primaria); color: #fff; }
+.botao-primario:hover { background: var(--cor-primaria-escura); }
+.botao-secundario { background: transparent; color: var(--cor-primaria); border: 1px solid var(--cor-primaria-clara); }
+.botao-secundario:hover { background: #E4ECEB; }
+.botao-perigo { background: transparent; color: var(--cor-alerta); border: 1px solid var(--cor-alerta); }
+.botao-perigo:hover { background: #FBEDEA; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+
+.acoes-rodape { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; flex-wrap: wrap; }
+
+label.campo { display: block; margin-bottom: 16px; }
+label.campo span.rotulo { display: block; font-size: 0.85rem; font-weight: 600; color: var(--cor-primaria-escura); margin-bottom: 5px; }
+input, select, textarea {
+  width: 100%; font-family: inherit; font-size: 0.95rem; padding: 10px 12px;
+  border: 1px solid var(--cor-borda); border-radius: 8px; background: #fff; color: var(--cor-texto);
+}
+textarea { min-height: 90px; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--cor-primaria-clara); outline-offset: 1px; }
+
+/* --- Cabeçalho do aluno (aparece no topo do PEI e da Avaliação) --- */
+.cabecalho-aluno {
+  background: var(--cor-primaria-escura);
+  color: #fff;
+  border-radius: var(--raio);
+  padding: 18px 22px;
+  margin-bottom: 22px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px 22px;
+}
+.cabecalho-aluno .item .rotulo { font-size: 0.68rem; text-transform: uppercase; letter-spacing: .05em; color: var(--cor-acento-clara); }
+.cabecalho-aluno .item .valor { font-size: 0.95rem; }
+.cabecalho-aluno .item.destaque .valor { font-family: var(--fonte-titulo); font-size: 1.15rem; }
+
+/* --- Trilha numerada das seções do PEI (a ordem carrega significado pedagógico) --- */
+.secao-formulario { position: relative; padding-left: 42px; margin-bottom: 26px; }
+.secao-formulario::before {
+  content: attr(data-numero);
+  position: absolute; left: 0; top: 0;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--cor-acento); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.9rem;
+}
+.secao-formulario::after {
+  content: ''; position: absolute; left: 14px; top: 32px; bottom: -26px; width: 2px;
+  background: var(--cor-borda);
+}
+.secao-formulario:last-child::after { display: none; }
+.secao-formulario h3 { margin: 2px 0 12px; font-family: var(--fonte-titulo); color: var(--cor-primaria-escura); font-size: 1.1rem; }
+
+.linha-habilidade {
+  border: 1px solid var(--cor-borda); border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; position: relative; background: #FBFCFB;
+}
+.linha-habilidade .remover { position: absolute; top: 10px; right: 10px; background: none; border: none; color: var(--cor-alerta); cursor: pointer; font-size: 0.8rem; }
+.linha-habilidade .grade-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.badge { display: inline-block; background: var(--cor-fundo); border: 1px solid var(--cor-borda); border-radius: 6px; padding: 3px 8px; font-size: 0.75rem; color: var(--cor-texto-suave); margin-right: 6px; }
+
+.habilidade-planejada-aval { border-left: 3px solid var(--cor-primaria-clara); padding-left: 14px; margin-bottom: 18px; }
+.habilidade-planejada-aval .texto-planejado { font-style: italic; color: var(--cor-primaria-escura); margin-bottom: 8px; }
+
+.aviso { padding: 12px 16px; border-radius: 8px; margin-bottom: 18px; font-size: 0.9rem; }
+.aviso.erro { background: #FBEDEA; color: var(--cor-alerta); border: 1px solid #F0C6BE; }
+.aviso.sucesso { background: #E9F3EC; color: var(--cor-sucesso); border: 1px solid #C4E0CD; }
+.aviso.info { background: #E7EFEE; color: var(--cor-primaria-escura); border: 1px solid var(--cor-borda); }
+
+.carregando { color: var(--cor-texto-suave); font-style: italic; padding: 20px 0; }
+
+/* --- Impressão --- */
+@media print {
+  header.topo, .trilha, .acoes-rodape, .sem-impressao { display: none !important; }
+  body { background: #fff; }
+  .cartao { box-shadow: none; border: none; padding: 0; }
+  .cabecalho-aluno { background: #fff !important; color: #000 !important; border: 1px solid #999; }
+  .cabecalho-aluno .rotulo, .cabecalho-aluno .valor { color: #000 !important; }
+  .secao-formulario::before { background: #000; }
+  main#app { max-width: 100%; padding: 0; }
+}
+
+@media (max-width: 560px) {
+  .cabecalho-aluno { grid-template-columns: 1fr 1fr; }
+  .linha-habilidade .grade-2 { grid-template-columns: 1fr; }
+}
